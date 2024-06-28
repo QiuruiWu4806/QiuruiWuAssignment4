@@ -23,9 +23,18 @@
                 $reminders = $R->fetchAll(PDO::FETCH_ASSOC);
                 foreach ($reminders as $reminder): ?>
                     <tr>
+                        <td><?php echo $reminder['id']; ?></td>
                         <td><?php echo $reminder['subject']; ?></td>
-                        <td><p><a href="/reminders/create">Update</a></p></td>
-                        <td><p><a href="/reminders/create">Delete</a></p></td>
+                        
+                    <td><form action="/reminders/update_reminder" method="POST";">
+                    <input type="hidden" name="id" value="<?php echo $reminder['id']; ?>">
+                    <button type="submit" class="btn btn-danger">Update</button>
+                    </form></td>
+                        
+                    <td><form action="/reminders/delete_reminder" method="POST";">
+                    <input type="hidden" name="id" value="<?php echo $reminder['id']; ?>">
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                    </form></td>
                     </tr>
                 <?php endforeach; ?>
             </tbody>

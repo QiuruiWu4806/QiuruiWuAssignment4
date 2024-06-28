@@ -27,4 +27,18 @@ class Reminders extends Controller {
 
     header('Location: /reminders');
   }
+
+  public function delete_reminder() {
+    $reminder_id = $_REQUEST['id'];
+    $db = db_connect();
+    $statement = $db->prepare("DELETE FROM reminders WHERE id = :reminder_id;");
+    $statement->bindValue(':reminder_id', $reminder_id);
+    $statement->execute();
+    
+    header('Location: /reminders');
+  }
+
+  public function update_reminder () {
+    
+  }
 }
