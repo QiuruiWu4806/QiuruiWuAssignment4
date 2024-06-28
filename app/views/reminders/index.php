@@ -27,6 +27,7 @@
                         <td><?php echo $reminder['subject']; ?></td>
                         
                     <td><form action="/reminders/update_reminder" method="POST";">
+                    <input required type="subject" class="form-control" name="subject">
                     <input type="hidden" name="id" value="<?php echo $reminder['id']; ?>">
                     <button type="submit" class="btn btn-danger">Update</button>
                     </form></td>
