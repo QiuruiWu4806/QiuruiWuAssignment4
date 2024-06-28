@@ -30,12 +30,7 @@ class Reminder {
       $db = db_connect();
       $statement = $db->prepare("INSERT INTO reminders (user_id, subject) VALUES (:user_id, :subject);");
       
-      $user_id = $db->prepare("select * from users WHERE username = :name;");
-      $user_id -> bindValue(':name', $_SESSION['username']);
-      $user_id -> execute();
-      $rows = $user_id -> fetch(PDO::FETCH_ASSOC);
-      
-      $statement->bindValue(':user_id', $rows[id]);
+      $statement->bindValue(':user_id', $_SESSION['user_id']);
       $statement->bindValue(':subject', $subject);
       $statement->execute();
     }

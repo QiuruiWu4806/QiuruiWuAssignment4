@@ -4,6 +4,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <h1>Reminders</h1>
+                <p><a herf="/reminders/create">Create a new reminder</a></p>
             </div>
         </div>
     </div>
