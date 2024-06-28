@@ -13,9 +13,18 @@ class Reminders extends Controller {
       $this->view('reminders/create');
     }
 
-    public function create_reminder(){
-      $reminder = $this->model('Reminder');
-      $subject = $_REQUEST['subject'];
-      $reminder->create_reminder($subject);
-    }
+  public function create_reminder(){
+    
+    $subject = $_REQUEST['subject'];
+    
+    $db = db_connect();
+    $statement = $db->prepare("INSERT INTO reminders (user_id, subject) VALUES (:user_id, :subject);");
+    
+    
+    $statement->bindValue(':user_id', $_SESSION['user_id']);
+    $statement->bindValue(':subject', $subject);
+    $statement->execute();
+
+    header('Location: /reminders');
+  }
 }

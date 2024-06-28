@@ -14,7 +14,7 @@
             <fieldset>
                 <div class="form-group">
                     <label for="subject">Subject</label>
-                    <input required type="text" class="form-control" name="username">
+                    <input required type="text" class="form-control" name="subject">
                 </div>
                     <br>
                     <button type="submit" class="btn btn-primary">Create</button>
